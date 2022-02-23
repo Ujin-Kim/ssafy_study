@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box;
+    /* 마진패딩보더를 포함해서 상자의 크기를 만들게한다 */
+}
+
+.body-background{
+    background-color: #FFF;
+}
+
+/* 헤더부분 */
+.header-nav{
+    display: flex;
+}
+
+.header-nav-list-wrapper{
+    list-style: none; /*bullet 사라지기*/
+    padding:0;
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.header-nav-list-wrapper li{
+    margin-left: 10px;
+}
+
+.toggle-button{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #eeeeee;
+    padding:5px 8px; /*버튼크기 키우기*/
+    border-radius: 5%;
+    cursor:pointer; /*마우스 가져다대면 cursor 손가락 모양으로 바뀜*/
+}
+/*헤더부분 끝*/
+
+/*메인*/
+.main-contains{
+    /* main-contains안의 내용들을 가운데 정렬 */
+    text-align: center;
+    /* body를 기준으로 */
+    position: absolute;
+    /* main-contains로 묶여있는 상자를 가운데 정렬 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image-logo{
+    width:272px;
+}
+
+/*검색부분*/
+.search-container{
+    position: relative;
+    margin: 0px auto;
+    margin-top:50px;
+}
+
+.search-icon{
+    position:absolute;
+    top:13px;
+    left:10px;
+    width:17px;
+}
+
+.search-input{
+    width: 100%;
+    height:44px;
+    padding-left:40px;
+    border-radius: 50px;
+    border: 1px solid #dddddd;
+}
+
+/*검색부분 끝*/
+
+/*북마크*/
+.bookmark-section{
+    margin-top:40px;
+}
+
+.bookmark-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    min-width: 430px;
+}
+
+.bookmark-item{
+    width: 112px;
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.bookmark-item:hover{
+    opacity: 0.5; /*밝기*/
+    cursor: pointer;
+}
+
+.img-icon-wrapper{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f3f5;
+    font-size: 24px;
+}
+
+.img-icon-wrapper > img{
+    width: 60%;
+    height: 60%;
+}
+
+.bookmark-plus{
+    width: 112px;
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.bookmark-text{
+    margin-top:5px;
+    color: #000;
+}
+
+/*북마크 끝*/
+
+/*클릭 이벤트 발생 시, 다크모드를 위해 css미리 정의*/
+
+.toggle-button-darkmode{
+    background-color: #fff;
+    color: #000;
+}
+
+.body-background-darkmode{
+    background-color: #000;
+}
+
+.text-darkmode{
+    color:#fff;
+}
+
+.img-icon-wrapper-darkmode{
+    background-color: #fff;
+}

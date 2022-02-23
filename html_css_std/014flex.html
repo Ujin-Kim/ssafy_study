@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        .box{
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+            background: red;
+        }
+        .a-wrapper{
+            background: blue;
+            height: 300px;
+            display: flex;
+            /*밑에잇는 것들은 flex일때 사용 가능*/
+            /*가로 정렬할 때 justify-content*/
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* justify-content: flex-start; */
+            
+            /*세로 가운데 정렬*/
+            /* align-items: center; */
+            align-items:center;
+        }
+
+        .b-wrapper{
+            display: flex;
+            height: 300px;
+            background-color: orange;
+            flex-direction: column; /*기본이 row였음, 주축이 원래는 row고 교차축이 column인데, 이명령어때문에 주축이 column 교차축이 row */
+            align-items: center; /*위에서 반대로 바꿔서 align-items center를 하면 가로 가운데 정렬이됨,, align-items는 교차축에서 가운데정렬함*/
+        }
+    </style>
+</head>
+<body>
+    <div class="a-wrapper">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <div class="b-wrapper">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

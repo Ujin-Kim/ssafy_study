@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .image-wrapper{
+        width: 800px;
+        height: 500px;
+        border-radius: 50px;
+        border: 7px solid yellow;
+        background-image: url(./kimchi-fried-rice-241051_1920.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .play-button{
+        width: 80px;
+        height: 80px;
+        background-image: url(./play-button.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 10;
+    }
+    .logo-text{
+        font-size: 90px;
+        color: yellow;
+        font-weight: bold;
+        position: absolute;
+        right: 10px;
+    }
+</style>
+<body>
+    <div class="image-wrapper">
+        <div class="play-button"></div>
+        <div class="logo-text">김치볶음밥<br/>만들기</div>
+    </div>
+</body>
+</html>

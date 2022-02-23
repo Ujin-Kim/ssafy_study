@@ -1,0 +1,10 @@
+.signup-form{
+    display:flex;
+    flex-direction: column;
+    max-width: 40vh;
+    /* 반응형 웹
+    vw : viewport weight : 본인 컴퓨터의 너비
+    vh : viewport height : 본인 컴퓨터의 높이 */
+    border: 4px solid black;
+    padding: 20px;
+}

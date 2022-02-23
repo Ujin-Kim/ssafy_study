@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .notification-container{
+        display: flex;
+        width:350px;
+        padding: 20px 10px;
+        border: 1px solid #dddddd;
+        color: gray;
+        font-size: 20px;
+        align-items: center;
+    }
+
+    .notification-container > div{
+        margin-left: 30px;
+    }
+
+    img{
+        width: 30px;
+        height: 30px; 
+    }
+
+    .profile-name-wrapper{
+        display: flex;
+        align-items: center;
+    }
+
+    .profile-name-wrapper > span{
+        margin-left: 10px;
+    }
+
+    .profile-name-wrapper > img{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .email-wrapper{
+        position: relative;
+    }
+
+    .email-notification{
+        background-color: #04cf5c;
+        position: absolute;
+        border-radius: 10px;
+        padding: 2px 5px;
+        font-size: 14px;
+        right: -15px;
+        top:-5px;
+        color:white;
+    }
+
+</style>
+<body>
+    <div class="notification-container">
+        <div class="profile-name-wrapper">
+            <img src="./images/brooklyn-bridge-6399829_1920.jpg" alt="profile image"> 
+            <span>Yujin Kim</span>
+        </div>
+        <div class="notification-wrapper">
+            <img src="./images/bell.png" alt="alarm">
+        </div>
+        <div class="email-wrapper">
+            <img src="./images/mail.png" alt="email">
+            <div class="email-notification"> 99+ </div>
+        </div>
+        <div class="menu-wrapper">
+            <img src="./images/grid.png" alt="grid">
+        </div>
+    </div>
+</body>
+</html>

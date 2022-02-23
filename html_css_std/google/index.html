@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="stylesheet" href="style.css"> <!--link:css 자동완성-->
+    <script defer src="/index.js"></script> <!--sc 자동완성-->
+</head>
+<body class="body-background">
+    <header>
+        <nav class="header-nav">
+            <ul class="header-nav-list-wrapper"> <!--ul>li*3 자동완성-->
+                <li>Gmail</li>
+                <li>이미지</li>
+                <li><button class="toggle-button">다크 모드</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-contains">
+        <h1><img class="image-logo" src="images/logo.png" alt="logo 이미지"></h1>
+        
+        <div class="search-container">
+            <input class="search-input" type="text" placeholder="Google 검색 또는 URL 입력">
+            <img class="search-icon" src="images/search.png" alt="search 이미지">
+        </div>
+
+        <section class="bookmark-section">
+            <div class="bookmark-wrapper">
+                <a href="https://www.naver.com" target="_blank" class="bookmark-item">
+                    <div class="img-icon-wrapper">
+                        <img src="images/naver.png" alt="naver 이미지" >
+                    </div>
+                    <div class="bookmark-text">naver</div>
+                </a>
+                <a href="https://www.google.co.kr" target="_blank" class="bookmark-item">
+                    <div class="img-icon-wrapper">
+                        <img src="images/google.png" alt="google 이미지" >
+                    </div>
+                    <div class="bookmark-text">google</div>
+                </a>
+                <a href="https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp" target="_blank" class="bookmark-item">
+                    <div class="img-icon-wrapper">
+                        <img src="images/ssafy.png" alt="ssafy 이미지" >
+                    </div>
+                    <div class="bookmark-text">ssafy</div>
+                </a>
+
+                <div class="bookmark-plus">
+                    <div class="img-icon-wrapper">+</div>
+                    <div class="bookmark-text">추가하기</div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+<!-- 
+a > li : 직계 자식을 찾는거
+a li : 직계아니어도됨
+ -->

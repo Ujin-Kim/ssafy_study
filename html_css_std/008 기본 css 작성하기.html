@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*reset css 라는게 있는데 일단은 그냥 이렇게 초기화시켜볼게*/
+        body{
+            padding:0px;
+            margin:0px;
+        }
+        /*css bem사용 방법론 -> id보다 class를 더 사용하는게 좋다*/
+        #test1{/* 고유한걸 사용할 때 id를 사용 ex) 주민등록번호, id는 입력할 때 #을 사용한다 */
+            background:red;
+            width: 100px;
+            height: 100px;
+        }
+        .test2{ /* 중복된 걸 사용할 때 class를 사용 ex) 학급, class는 입력할 때 .을 사용한다 */
+            background: orange;
+            font-size: 50px;
+            text-align: center;
+            /*ㄴ콘텐츠의 크기가 커졌기때문에 div의 크기도 함께 커졌다*/
+        }
+        .test3{
+            background-image: url("./supreme-administrative-court-6367607_1920.jpg");
+            background-repeat: no-repeat;
+            width: 200px;
+            height: 200px;
+            /* background-position: center; */
+            background-size: cover;
+            /* css 속성에 대한 설명이 알고싶을 때 MDN 이라고 구글에 쳐보면 뭔지 알 수 있음 */
+        }
+        h6{ /*이 방법은 h1의 태그에 직접적으로 접근해서 변경한 것이다 -> 이 방법은 추천하지 않음, 모든 h1태그에 전부 적용이 되기 때문에*/
+            /*태그 selector는 선호하지 않는다*/
+            color:green;
+        }
+        .test4{
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+
+            /* 이거는 단축속성이라고한다. 상하좌우 다 margin한번에 줬기 때문에 */
+            padding: 50px; /*안쪽 여백*/
+            border: 3px solid black; /*외곽선*/
+            /*margin: 20px; /*외곽 여백*/
+            
+            /* 개인적으로 주고 싶을 때 */
+            /*margin-top: 10px;
+            margin-left: 15px;*/
+
+            /* 이렇게도 넣을 수 있다. 상하/좌우*/
+            /* margin: 5px 10px; */
+
+            /*블록 요소의 가운데 정렬을 할 떄 margin=0 auto 를 사용한다.*/
+            margin: 0 auto;
+            text-align: center;
+            /*인라인 요소(text..)를 가운데 정렬할 때는 부모 요소의 text-align: center 요소를 사용한다*/
+
+        }
+        .test5{
+            background-color: rosybrown;
+            color: seagreen;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h6>하이</h6>
+    <div id="test1">aa</div>
+    <div class="test2">bb</div>
+    <div class="test3">cc</div>
+
+    <!-- div,p는 블록요소 / span,a는 인라인요소 -->
+    <div class="test4">margin, border</div>
+    <div class="test5">
+        <span class="test">hello, world!</span>
+    </div>
+</body>
+</html>

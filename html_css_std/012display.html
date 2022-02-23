@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer-block{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+        .inner-block{
+
+        }
+
+        /* 
+        block요소의 특징 : 
+        1. 자동줄바꿈 
+        2. 너비 높이 설정 가능
+        3. padding, margin 적용 가능
+        ex) div, h1, p태그 등
+        */
+
+        span{
+            background-color: orange;
+            width: 100px; /*인라인 요소는 너비높이 설정 XX, 컨텐츠의 크기 만큼만 차지*/
+            padding: 100px;
+        }
+        
+        /* 
+        inline요소의 특징 : 
+        1. 자동줄바꿈 안됨
+        2. 너비 높이 설정 불가능
+        3. margin-top, margin-bottom 적용 불가능 - 다른건 됨
+        ex) a태그, span 등
+        */
+
+        /*
+        inline-block 요소
+        : 기본은 inline인데, block요소 특징이 추가된 것
+        1. 줄바꿈 발생하지 않습니다.
+        2. 너비, 높이 설정 가능
+        3. margin-top, margin-bottom 가능
+        ex) button, select 등
+        */
+    </style>
+</head>
+<body>
+    <div class="outer-block">
+        <div class="inner-block"></div>
+    </div>
+    <div class="outer-block"></div>
+
+    <span>나는 span 입니다.</span>
+</body>
+</html>

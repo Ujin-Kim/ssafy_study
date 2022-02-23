@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes ani { /*함수정의문*/
+        0% {background-color: black;}
+        50% {background-color: red;}
+        100% {
+            background-color: blue;
+            transform: rotate(150deg);
+        }
+    }
+    .box{
+        width: 180px;
+        height: 180px;
+        background-color: green;
+        /*함수 호출 문*/
+        animation: ani infinite 2s alternate forwards; /*애니메이션명, 얼마나 반복할건지, 몇초동안, direction, 앞에서시작할건지 뒤에서시작할건지*/
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>

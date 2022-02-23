@@ -1,0 +1,26 @@
+<!-- dom : document object model
+html파일은 tree자료구조 형태를 가진다
+css로 selector에다가 디자인을했다. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My title</title>
+    <!-- head태그에는 script 태그 삽입을 자제한다. 가벼운 스크립트 정도만 삽입가능 -> 사용자 입장에서 로딩시간이 오래 걸려서 -->
+    <!-- <script type="text/javascript" src="./200 test.js"></script> -->
+
+    <!-- 만약에 body태그들도 너무 많아서 script 내용을 엄청 밑에서 확인해야한다면
+    나는 head에 넣을래 하는 사ㅐ람을 위해 defer를 사용할 수 있다. 우리는 이거를 사용할 거임-->
+    <script defer type="text/javascript" src="./200 test.js"></script>
+</head>
+<body>
+    <!-- body태그의 가장 처음 부분에 놔두는 것도 head태그에 넣는 것과 비슷하다 -->
+    <!-- <script type="text/javascript" src="./200 test.js"></script> -->
+    <h1>A heading</h1>
+    <a href="https://www.mcdonalds.co.kr">Link text</a>
+    <!-- body태그의 가장 마지막 부분에 놔두면 사용자 입장에서 script가 실행되지 않고 body태그에 적혀있는 것들을 일부라도 보여주는게 낫다. -->
+    <!-- <script type="text/javascript" src="./200 test.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>http://info.cern.ch</title>
+    <style>
+        body{
+            background-color: #f5deb3;
+        }
+        .test{
+            color: #ee2244;
+        }
+        .clr{
+            color: blue;
+            text-align: center; /* text랑 a는 인라인 이기 때문에 class에서 설정 */
+        }
+        .clr > a{
+            color: purple;
+        }
+        li > a{ /*css는 상속이 된다*/
+            color: black;
+            /* text-align: center; - 이거는 부모 클래스 아니라서 정렬안됨 */
+        }
+
+        /*css 우선순위가 있다*/
+            /* 
+            1. 속성 값 뒤에 !important 를 붙인 속성
+            a{
+                color: red; !important
+            }
+            a{
+                color: blue; 
+            }
+            => 원래 가장 밑에 있는 a가 실행되어야 하는데 !important가 가장 우선이 됨
+            
+            2. HTML에서 style을 직접 지정한 속성
+            3. #id 로 지정한 속성
+            4. .클래스, :추상클래스 로 지정한 속성
+            5. 태그이름 으로 지정한 속성
+            6. 상위 객체에 의해 상속된 속성 
+            
+            1일수록 우선순위가 높다
+            */
+    </style>
+</head>
+<body>
+    <h1 class="test">http://info.cern.ch - home of the first website</h1>
+
+    From here you can:
+    <ul>
+        <li class="clr"> 
+            test1<a href="#"> Browse the first website </a>
+        </li>
+
+        <a href="#"> Browse the first website </a>
+
+        <li class="clr">
+            test2<a href="#"> Browse the first website using the line-mode browser simulator </a>
+        </li>
+        <li class="clr">
+            test3<a href="#"> Learn about the birth of the web </a>
+        </li>
+        <li class="clr">
+            test4<a href="#"> Learn about CERN. the physics laboratory where the web was born </a>
+        </li>
+    </ul>
+
+
+</body>
+</html>

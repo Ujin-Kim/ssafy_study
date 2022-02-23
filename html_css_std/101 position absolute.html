@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- DOCTYPE의 역할 : html5 문서임을 브라우저에게 알린다. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.parent{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            left: 50px 
+        }
+        div.child{
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            position: absolute;
+            /* top:50p */
+            bottom: 0%;
+        }
+        div.grandmother{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: relative;
+            left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grandmother">
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </div>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.signup{
+    border: 2px solid black;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 40vh;
+}

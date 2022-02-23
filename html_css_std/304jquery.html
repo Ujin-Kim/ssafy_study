@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- google CDN -> 3.x snippet 긁어와서 붙여랑 -->
+    <!--jquery단점 : 무겁다-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="hi">hello</div>
+    <button class="click-button">클릭 버튼</button>
+
+    <script>
+        // document.querySelector -> 막 이렇게 하던거를 밑에처럼 쉽게 가져올수잇어서 흥행했엉ㅆ음
+        console.log($(".hi"))
+        // $("body").css("backgroundColor", "gray");
+        $("body").css("color", "red");
+        $(".hi").text("제이쿼리 시작");
+
+        $(".click-button").on("click", function(){
+            alert("Hello");
+        })
+
+        // jquery는 js의 라이브러리이다.
+    </script>
+</body>
+</html>

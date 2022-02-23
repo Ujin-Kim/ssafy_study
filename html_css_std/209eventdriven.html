@@ -1,0 +1,35 @@
+<!-- 
+event는 사건
+페이지가 넘어간다, 버튼이 눌려진다. 등
+eventDriven: event가 발생하면 함수가 호출되도록 하는 것, event 발생시 만들어둔 script가 동작되게 하는 방식
+
+callback함수 : 이벤트에서의 콜백함수는 이벤트로 인해 호출되는 함수
+이벤트핸들러 : 이벤트 발생시에 호출되는 함수
+이벤트리스너 : 이벤트가 발생했을 때 예약된 이벤트핸들러 호출해주는 객체 
+
+DOM에다가 이벤트를 등록하는 거임
+-->
+
+<!-- 버튼이 눌리면 함수 호출하기 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick=gogo()>버튼</button>: 인라인 방식이다. html이랑 js가 구분이 안대서 유지보수 어렵 -->
+    <button class="btn">버튼</button>
+    <script>
+        const btn = document.querySelector(".btn");
+        // console.log(btn);
+        btn.addEventListener('click', gogo); //("이벤트명", "콜백함수(이벤트핸들러이름)")
+
+        function gogo(){
+            alert("gogo");
+        } //함수 선언식이라서 호이스팅이 되어서 위에서 먼저 gogo함수를 쓴것처럼 보이지만 사실 gogo는 이미 선언이 되었었던 거시여따
+    </script>
+</body>
+</html>

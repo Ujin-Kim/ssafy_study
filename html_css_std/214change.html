@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <div>
+    </div>
+    <script>
+        const input = document.querySelector("input");
+        const div = document.querySelector("div");
+
+        input.addEventListener("change", gogo);
+
+        function gogo(e){
+            console.log(e.target.value); //엔터쳤을때 전꺼랑 바뀌었으면 고고
+            div.textContent = e.target.value; //이거 자주 사용됩니다
+        }
+    </script>
+</body>
+</html>
+
+<!-- innerText랑 textContent 다시 이해할것 -->
