@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script defer src="./index.js"></script>
+    <style>
+        .object{
+            color: white;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            z-index: 9;
+            background-size: cover;
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-wrapper m-3 p-3 border" style="width: 300px;">
+        <div class="mb-3">
+            <div class="form-file">
+                <input type="file" class="form-file-input" id="input-file">
+                <label for="input-file" class="form-file-label">
+                    <span class="form-file-text">이미지를 선택해주세요</span>
+                    <span class="form-file-button">파일</span>
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="input-width" class="form-label">가로길이</label>
+            <input type="text" class = "form-control" id="input-width" placeholder="width">
+        </div>
+        <div class="mb-3">
+            <label for="input-height" class="form-label">세로길이</label>
+            <input type="text" class = "form-control" id="input-height" placeholder="height">
+        </div>
+        <button id="create-button" class="btn btn-primary w-100">생성하기</button>
+    </div>
+</body>
+</html>
