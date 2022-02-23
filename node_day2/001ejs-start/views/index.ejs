@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ejs 변수 바인딩하기 -->
+    <!-- ejs 내부에서는 document를 사용할 수 없다 -> 서버에서 해석 불가능하다 -->
+    <!-- 변수 선언시 -->
+    <% const name = "hello" %> 
+    <!-- 변수 선언을 보여줄 시에는 -->
+    <%= name%>
+    <h1>hello ejs</h1>
+    <% const hello = [1,2,3,4,5] %>
+    <!-- ejs는 되도록 한줄로 써야한다 -->
+    <% for(let i = 0; i < hello.length; i++){ %>
+          <!--일반 html  -->
+          <div>test입니다</div>
+          <div><%=hello[i]%></div>
+    <% } %>
+
+    <!-- foreach로 해보기 -->
+    <%hello.forEach(el=>{%>
+        <div><%=el%></div>
+    <% }) %>
+
+    <h1>데이터가 넘어오나?</h1>
+    <div><%=data%></div>
+</body>
+</html>

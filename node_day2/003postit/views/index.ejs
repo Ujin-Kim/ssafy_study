@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <style>
+      .card-text-hidden {
+        overflow: hidden;
+        /* ㄴ 길이가 일정이상 길어지면 ...으로 가리기 표시하는 css */
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .card-wrapper {
+        max-width: 400px;
+        min-height: 300px;
+        cursor: pointer;
+        box-shadow: rgba(188, 196, 219, 0.77) 5px 5px 13px 0px;
+      }
+      .card-wrapper:hover {
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <div class="h5 text-white text-decoration-none" href="#">JSONPlaceholder</div>
+      </div>
+    </nav>
+
+<div class="d-flex flex-wrap justify-content-center mt-5">
+
+    <!-- 반복할 부분 -->
+    <% data.forEach(li => { %>
+        <div onclick="moveDetail('<%=li.id%>')" class="card-wrapper card bg-light m-5">
+            <div
+              class="
+                card-header
+                text-white
+                bg-primary
+                d-flex
+                flex-column
+                justify-content-center
+                align-items-center
+              "
+              style="min-height: 70px; min-width: 300px"
+            >
+            <%=li.title%>
+            </div>
+            <div class="card-body">
+              <p class="card-text-body card-text card-text-hidden"><%=li.body%></p>
+            </div>
+          </div>
+    <%})%>
+  
+</div>
+
+<nav aria-label="...">
+  <ul class="pagination">
+
+    <%if (page === 1){%>
+        <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+        </li>
+    <%} else {%>
+        <li class="page-item">
+            <a class="page-link" href="/posts?page=<%=page-1%>">Previous</a>
+          </li>
+    <%}%>
+
+    <!-- <%=count%>
+    <%=page%> -->
+
+    <% for(let i = 1; i < Math.floor(count/6 + 1); i++){ %>
+        <%if(i === page){%>
+            <li class="page-item active">
+                <span class="page-link"><%=i%></span>
+            </li>
+        <%} else {%>
+            <li class="page-item">
+                <a href="/posts?page=<%=i%>" class="page-link">
+                    <%= i %>
+                </a>
+            </li>
+        <%}%>
+    <%}%>
+
+    <% Number(count/6 + 1) %>
+
+    <% if(page === Math.floor(count/6 +1)) {%>
+        <li class="page-item disabled">
+            <span class="page-link">Next</span>
+        </li>
+    <%} else {%>
+        <li class="page-item">
+            <a class="page-link" href="/posts?page=<%=page+1%>">Next</a>
+        </li>
+    <%}%>
+<!-- 
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <span class="page-link">2</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li> -->
+  </ul>
+</nav>
+    <script>
+        function moveDetail(id) {
+            location.href = `/posts/${id}`
+        }
+    </script>
+  </body>
+</html>

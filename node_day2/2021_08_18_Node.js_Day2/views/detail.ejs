@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+</head>
+
+<body>
+  <!-- nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="h5 text-white text-decoration-none" href="#">Photos</div>
+    </div>
+  </nav>
+
+  <div class="d-flex flex-wrap justify-content-center mt-5">
+    <% data.forEach(li => { %>
+    <div class="card-wrapper card bg-light m-5">
+      <div class="
+          card-header
+          text-white
+          bg-dark
+          d-flex
+          flex-column
+          justify-content-center
+          align-items-center
+        " style="min-height: 70px; min-width: 300px; max-width: 300px">
+        [<%=li.albumId%>-<%=li.id%>] <%=li.title%>
+      </div>
+
+      <div class="card-body" style="min-height: 70px; min-width: 300px; max-width: 300px">
+        <p class="card-text-body card-text card-text-hidden text-center">
+          <img src='<%=li.thumbnailUrl%>' alt="이미지 로드 실패">
+        </p>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+
+  <nav aria-label="...">
+    <ul class="pagination justify-content-center">
+      <% if(page === 1){ %>
+        <li class="page-item disabled">
+          <span class="page-link">Previous</span>
+        </li>
+        <% } else { %>
+        <li class="page-item"></li>
+        <a class="page-link text-dark" href="?albums=<%=page-1%>">Previous</a>
+      <% } %>
+      
+      <% for(let i = 1; i < Math.floor(count/8) + 1; i++) { %>
+      
+        <% if (i === page) { %>
+          <li class="page-item active">
+            <span class="page-link text-white bg-dark"><%= i %></span>  
+          </li>
+        <% } else { %>
+          <li class="page-item">
+            <a href="/albums/?page=<%=i%>" class="page-link text-dark">
+              <%= i %>
+            </a>
+          </li>
+        <% } %>
+      <% } %>
+
+      <% if(page === Math.floor(count/8 + 1)) { %>
+        <li class="page-item disabled">
+          <span class="page-link">Next</span>
+        </li>
+      <% } else {%>
+        <li class="page-item">
+          <a class="page-link text-dark" href="/albums/?page=<%=page+1%>">Next</a>
+        </li> 
+      <% } %>
+    </ul>
+  </nav>
+</body>
+
+</html>
