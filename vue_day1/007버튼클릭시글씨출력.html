@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <textarea>{{msg}}</textarea>
+        <button v-on:click=bbq()>클릭</button>
+    </div>
+    <!--  -->
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data:{
+                msg : "클릭을 눌러주세요.",
+                nextMsg: "하하",
+            },
+            methods:{
+                bbq(){
+                    this.msg = this.nextMsg;
+                }
+            }
+        });
+    </script>
+<!-- 뷰객체는 여러개가 가능하다 -->
+</body>
+</html>

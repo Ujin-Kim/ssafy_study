@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-if="seen">로그인/회원가입</p>
+        <p v-else-if="data">로그아웃/회원정보</p>
+        <!-- <p v-else>로그아웃/회원정보</p> -->
+    </div>
+    <!--    -->
+    <script>
+        const app =  new Vue({
+            el: '#app',
+            data:{
+                seen: true,
+                data: true,
+            }
+        });
+    </script>
+
+
+<!-- 예를 들어서 logined = false면 로그인/회원가입, login= true면 로그아웃/회원정보 버튼 보여주기 -->
+</body>
+</html>

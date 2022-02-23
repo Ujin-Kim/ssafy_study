@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- html element들 -->
+    <div id="app">
+        {{message}}
+    </div> 
+
+    <!-- vue 관련 요소들 -->
+    <script>
+        //단방향바인딩
+        // Vue 객체형식
+        const app = new Vue({
+            el: '#app',
+            data:{
+                message:'hello world!'
+            }
+        });
+        console.log(app);
+    </script>
+
+
+<!-- vue는 프레임워크라서 템플릿이 거의정해져있다고 생각하면됨 템플릿 자체를 외우면됨 -->
+</body>
+</html>

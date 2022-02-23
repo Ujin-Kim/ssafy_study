@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <!--  -->
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data: {
+                todos:[
+                    {text:"자바스크립트 배우기"},
+                    {text:"Vue배우기"},
+                    {text:"자바스크립트"},
+                ]
+            }
+        })
+    </script>
+
+    <!-- 
+    배열 장점: 인덱스가 있어서 탐색에 유리 , 같은 자료형들의 집합 ,삽입삭제가 불리
+    객체: 다양한 자료구조를 담을 수 있는 장점, 삽입 삭제 유리
+    -->
+</body>
+</html>

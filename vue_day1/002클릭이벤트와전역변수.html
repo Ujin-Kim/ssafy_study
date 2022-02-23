@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <!-- <button click="">HEY</button> -->
+        <button v-on:click="bbq">HEY</button>
+    </div>
+    <!--  -->
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:'',
+                nextMsg:'why so serious?',
+            },
+            methods:{
+                bbq(){
+                    // 자바스크립트에서의 this: 함수호출시점에 바인딩(정해진다)
+                    // 1.일반함수로호출되었을때 -> this는 전역객체를 가르킨다
+                    // 2.메서드로 호출되었을때 -> this는 그 메서드를 소유한 객체를 가르킨다
+                    //함수와 메서드의 차이 : 함수가 메서드를 포함하는 의미, 메서드는 객체내의 element의 상태와 연관이 있을 때
+                    this.msg = this.nextMsg;
+
+                    // bbq()에서 this를 안쓰면 window.msg, window.nextMsg를 가르키는 말일것이다
+                    // 이 메서드를 소유한 객체가 window이므로
+                    // 그래서 this를 써줘서 app.msg = app.nextmsg를 의미하게 하는거임
+                }
+            }
+        })
+    </script>
+</body>
+</html>

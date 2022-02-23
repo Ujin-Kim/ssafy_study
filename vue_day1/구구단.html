@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{num1}} 곱하기 {{num2}}은?</p>
+        <input type="text" v-model:value="answer" >
+        <button v-on:click="go">입력</button>
+        <div>{{result}}</div>
+    </div>
+
+    <!--  -->
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                num1: Math.floor(Math.random()*10) + 1,
+                num2: Math.floor(Math.random()*10) + 1,
+                answer: "",
+                result: "",
+            },
+            methods:{
+                go(){
+                    if(parseInt(this.answer) === this.num1 * this.num2){
+                        this.result = "정답";
+                        setTimeout(()=>{
+                            this.num1 = Math.floor(Math.random()*10) + 1;
+                            this.num2 = Math.floor(Math.random()*10) + 1;
+                            this.result = this.num;
+                            this.answer = "";
+                        }, 1000);
+                    }
+                    else{
+                        this.result = "땡!!";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

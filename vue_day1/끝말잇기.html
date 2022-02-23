@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>끝말잇기</h2>
+        <p>{{start}}</p>
+        <input type="text" v-model:value="next">
+        <button v-on:click="go">입력</button>
+        <p>{{possible}}</p>
+    </div>
+
+
+    <!--  -->
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                start:"유상무",
+                next:"",
+                possible:"",
+            },
+            methods:{
+                go(){
+                    if(this.start[this.start.length-1] === this.next[0]){
+                        this.start = this.next;
+                        this.next = "";
+                        this.possible = "정답";
+                    }
+                    else{
+                        this.possible="땡";
+                    }
+                }
+            }
+            
+
+        })
+    </script>
+</body>
+</html>

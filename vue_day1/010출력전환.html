@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="p1">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+        </div>
+        <div v-else-if="p2">
+            <div>d</div>
+            <div>e</div>
+        </div>
+        <div v-else-if="p3">
+            <div>f</div>
+            <div>g</div>
+        </div>
+        <button v-on:click="go">GO</button>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data:{
+                p1:true,
+                p2:false,
+                p3:false,
+            },
+            methods:{
+                go(){
+                    if(this.p1){
+                        this.p1 = false;
+                        this.p2 = true;
+                        this.p3 = false; 
+                    }
+                    else if (this.p2){
+                        this.p1 = false;
+                        this.p2 = false;
+                        this.p3 = true; 
+                    }
+                    else{
+                        this.p1 = true;
+                        this.p2 = false;
+                        this.p3 = false; 
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
