@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <select class="sort_box mb-3 mt-3">
+      <option value="">선택</option>
+      <option value="name">이름</option>
+      <option value="high">최고가</option>
+      <option value="low">최저가</option>
+      <option value="trade">거래량</option>
+    </select>
+  </div>
+
+  <script>
+    (async function () {
+      const bitInfomation = await axios.get("https://api.bithumb.com/public/ticker/ALL");
+      const {
+        data
+      } = bitInfomation;
+      //객체에서 키 or value들만 뽑아서 배열로 만듬
+      // console.log(Object.keys(data.data)); 
+      // console.log(Object.values(data.data));
+
+      let entry = Object.entries(data.data);
+      console.log(entry);
+
+      //table을 만든다
+      const trTag = (data, index) => `
+        <tr>
+          <th scope="row">${index}</th>  
+          <td>${data[0]}</td>
+          <td>${data[1]["max_price"]}</td>
+          <td>${data[1]["min_price"]}</td>
+          <td>${data[1]["units_traded_24H"]}</td>
+        </tr>
+      `
+
+      function createTable(data) {
+        const trs = data.reduce((acc, cur, index) => {
+          acc += trTag(cur, index);
+          return acc;
+        }, "")
+
+        return `
+          <table class="table table-secondary">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">화폐 이름</th>
+                <th scope="col">최고가</th>
+                <th scope="col">최저가</th>
+                <th scope="col">거래량</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${trs}
+            </tbody>
+          </table>
+        `
+      }
+
+      document.querySelector('.container').insertAdjacentHTML("beforeend", createTable(entry));
+
+      // 카테고리에 따른 sort
+      function sortByCategory(category) {
+        // console.log("sort중");
+        if (category === "name") {
+          return entry.sort(function (a, b) {
+            if (a[0] > b[0]) return 1;
+            if (a[0] < b[0]) return -1;
+            return 0;
+          })
+        } else if (category === "high") {
+          entry.sort((a, b) => {
+            return Number(b[1]["max_price"]) - Number(a[1]["max_price"]);
+          })
+        } else if (category === "low") {
+          entry.sort((a, b) => {
+            return Number(a[1]["min_price"]) - Number(b[1]["min_price"]);
+          })
+        }
+        else if (category === "trade") {
+          entry.sort((a, b) => {
+            return Number(b[1]["units_traded_24H"]) - Number(a[1]["units_traded_24H"]);
+          })
+        }
+        return entry;
+      }
+
+      const selected = document.querySelector(".sort_box");
+      selected.addEventListener("change", function () {
+        let val = selected.options[selected.selectedIndex].value;
+        entry = sortByCategory(val);
+        document.querySelector(".table").remove();
+        document.querySelector('.container').insertAdjacentHTML("beforeend", createTable(entry));
+      })
+    })();
+  </script>
+</body>
+
+</html>

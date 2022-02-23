@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <select class="select-sort">
+            <option value="data">최대값 별</option>
+            <option value="data">최소값 별</option>
+            <option value="data">이름 별</option>
+        </select>
+    </div>
+    <script>
+
+
+        async function bitTable(key){
+            const bitInformation = await axios.get("https://api.bithumb.com/public/ticker/ALL")
+            const {data} = bitInformation
+            
+            const entry =  Object.entries(data.data);
+            entry.pop();
+            const array = entry.sort((a,b) =>{
+                if(key == 0)
+                {
+                    if(a[key] > b[key]){
+                    return 1;
+                    }
+                    if(a[key] < b[key]){
+                        return -1;
+                    }
+                    return 0; 
+                }
+                else
+                {
+                    if(Number(a[1][key]) > Number(b[1][key])){
+                        return -1;
+                    }
+                    if(Number(a[1][key]) < Number(b[1][key])){
+                        return 1;
+                    }
+                    return 0; 
+                }
+                
+            })
+            const trTag = (data,index)=>`
+                <tr>
+                    <th scope="row">${index+1}</th>
+                    <td>${data[0]}</td>
+                    <td>${data[1]["max_price"]}</td>
+                    <td>${data[1]["min_price"]}</td>
+                </tr>
+            `
+
+            function createTable(data){
+                const trs = data.reduce((acc,cur,index) => {
+                    acc += trTag(cur,index);
+                    return acc;
+                },"")
+                return `
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">화폐 이름</th>
+                                <th scope="col">최대 값</th>
+                                <th scope="col">최소 값</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${trs}
+                        </tbody>
+                    </table>
+                `
+            }
+            
+            document.querySelector('.container').insertAdjacentHTML("beforeend",createTable(array));
+
+        }
+
+        const select_option = document.querySelector(".select-sort");
+
+        select_option.addEventListener('change',()=>{
+            const t = document.querySelector('.table');
+            const b = document.querySelector('.container').removeChild(t);
+            Run();
+        })
+        async function Run(){
+            const select_option = document.querySelector(".select-sort");
+            if(select_option.selectedIndex == 2 ){
+                await bitTable(0);
+            }
+            else if(select_option.selectedIndex == 0){
+                await bitTable("max_price");
+            }
+            else if(select_option.selectedIndex == 1){
+                await bitTable("min_price");
+            }
+        }
+        Run();
+
+    </script>
+</body> 
+</html>

@@ -1,0 +1,11 @@
+.modal-button{
+    position: fixed;
+    right: 30px;
+    top: 75px;
+    background-image: url('./images/001-cloud.png');
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    cursor: pointer;
+    z-index: 30;
+}

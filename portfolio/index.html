@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김유진의 포트폴리오</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="/index.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="bg-light navbar navbar-light position-fixed w-100" style="z-index: 9;">
+            <a href="#intro-part" class="navbar-brand ps-4">Yu Jin's Portfolio</a>
+            <ul class="nav justify-content-end text-white">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#intro-part">Intro</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about-part">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#skill-part">Skill</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#close-part">Closing</a>
+                </li>
+              </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- weather modal -->
+        <div class="modal-button" data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0">
+                  <h5 class="modal-title text-light" id="exampleModalLabel">오늘의 날씨</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex">
+                  <div class="card border-dark mb-3">
+                    <div class="card-header text-dark">
+                        2021-02-02 <span>오전</span>
+                    </div>
+                    <div class="card-body text-dark d-flex">
+                        <!-- 반복구간 -->
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">
+                                <img src="./images/001-cloud.png" width="40px" height="40px" />
+                            </h5>
+                            <p class="card-text">맑음</p>
+                        </div>
+                        <!-- //반복구간 -->
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer"></div>
+              </div>
+            </div>
+          </div>
+        <!-- /weather modal -->
+
+        <!-- intro -->
+        <section id="intro-part">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/images/work.jpg" class="d-block w-100" alt="work image">
+                    <div class="carousel-caption h-50">
+                        <h2>
+                            임베디드 개발자 김유진입니다.
+                        </h2>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/palm.jpg" class="d-block w-100" alt="palm image">
+                    <div class="carousel-caption h-50">
+                        <h2>
+                            침착하고 평온하게 버그를 찾아낼 준비가 된 개발자 김유진입니다.
+                        </h2>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/bridge.jpg" class="d-block w-100" alt="bridge image">
+                    <div class="carousel-caption h-50">
+                        <h2>
+                            사용자와 기업 사이의 다리 역할을 할 수 있는 개발자 김유진입니다.
+                        </h2>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </section>
+        <!-- /intro -->
+
+        <!-- about -->
+        <section id="about-part" class="pt-5" style="height: 100%">
+          <div class="h2 bg-light p-3 w-100">About</div>
+            <div class="card-wrapper d-flex align-items-center justify-content-center">
+              <div class="card" style="width: 15rem;">
+                <img src="/images/profile.jpg" class="card-img-top" alt="profile image">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Yujin Kim</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                  </svg><span class="ms-2">010-5480-9713</span></li>
+                  <li class="list-group-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                  </svg><span class="ms-2">best5537@gmail.com</span></li>
+                  <li class="list-group-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    <a href="https://github.com/Ujin-Kim" target="_blank" class="link-dark"><span class="ms-1">github.com/Ujin-Kim</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="w-75 my-auto">
+                <ul class="w-30 mx-auto mt-5 skill-List">
+                  <li class="list-group-item d-flex align-items-center p-4">
+                    <div class="w-25 text-center">C/C++</div>
+                    <div class="progress w-50 m-auto">
+                      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="w-25 text-center">75%</div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center p-4">
+                    <div class="w-25 text-center">Java</div>
+                    <div class="progress w-50 m-auto">
+                      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="w-25 text-center">50%</div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center p-4">
+                    <div class="w-25 text-center">Python</div>
+                    <div class="progress w-50 m-auto">
+                      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="w-25 text-center">50%</div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center p-4">
+                    <div class="w-25 text-center">Html/CSS</div>
+                    <div class="progress w-50 m-auto">
+                      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="w-25 text-center">75%</div>
+                  </li>
+                  <li class="list-group-item d-flex align-items-center p-4">
+                    <div class="w-25 text-center">JavaScript</div>
+                    <div class="progress w-50 m-auto">
+                      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="w-25 text-center">30%</div>
+                  </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /about -->
+
+        <!-- skill -->
+        <section id="skill-part" class="pt-5" style="height: 100%">
+          <div class="h2 bg-light p-3 w-100">Skill</div>
+            <table class="table w-75 mt-5 mx-auto">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">분야</th>
+                  <th scope="col">분류</th>
+                  <th scope="col">스택</th>
+                  <th scope="col">Level</th>
+                  <th scope="col">근거</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <th scope="row" rowspan="6" class="align-middle">WEB</th>
+                  <th scope="row" rowspan="3" class="align-middle">FrontEnd</th>
+                  <td>HTML/CSS</td>
+                  <td>⭐⭐⭐⭐</td>
+                  <td>웹페이지 클론 코딩 가능</td>
+                </tr>
+                <tr>
+                  <td>Bootstrap5</td>
+                  <td>⭐⭐⭐</td>
+                  <td>Bootstrap 기준 Document 참고하여 개발 가능</td>
+                </tr>
+                <tr>
+                  <td>JavaScript</td>
+                  <td>⭐⭐</td>
+                  <td>다양한 Web Project 개발 진행</td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="3" class="align-middle">BackEnd</th>
+                  <td>Node.js</td>
+                  <td>학습예정</td>
+                  <td>~~</td>
+                </tr>
+                <tr>
+                  <td>MySQL</td>
+                  <td>⭐⭐</td>
+                  <td>문법, 필요한 데이터 파싱 가능</td>
+                </tr>
+                <tr>
+                  <td>MS-SQL/SQLite</td>
+                  <td>⭐⭐</td>
+                  <td>Qt + MS-SQL/SQLite 프로젝트 경험</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table w-75 mt-5 mx-auto">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">분야</th>
+                  <th scope="col">분류</th>
+                  <th scope="col">스택</th>
+                  <th scope="col">Level</th>
+                  <th scope="col">근거</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <th scope="row" rowspan="4" class="align-middle">Embedded</th>
+                  <th scope="row" rowspan="1" class="align-middle">MPU</th>
+                  <td>Qt Framework</td>
+                  <td>⭐⭐⭐</td>
+                  <td>window/linux Qt+Rpi3 크로스 컴파일 경험</td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="1" class="align-middle">MCU</th>
+                  <td>AVR Studio</td>
+                  <td>⭐⭐⭐⭐</td>
+                  <td>라인트레이싱 로보카 프로젝트</td>
+                </tr>
+                <tr>
+                  <th scope="row" rowspan="2" class="align-middle">Mobile</th>
+                  <td>Android Studio</td>
+                  <td>⭐⭐⭐</td>
+                  <td>XML + Java, json 활용 프로젝트</td>
+                </tr>
+              </tbody>
+            </table>
+        </section>
+        <!-- /skill -->
+
+        <!-- close -->
+        <section id="close-part" class="mt-5 pt-5" style="min-height: 100vh;">
+          <div class="h2 bg-light p-3 w-100">Closing</div>
+          <div class="card mb-3 text-center">
+            <img src="/images/palm.jpg" alt="closing image" class="card-img-top w-50 mx-auto mt-5">
+            <div class="card-body">
+              <h3 class="card-title">저는 무한한 발전 가능성을 가지고 있습니다.</h3>
+              <p class="card-text text-center">
+                싸피를 기점으로 매일 발전하는 개발자가 되겠습니다.<br/>
+                즐겁게 코딩해서 사용자가 즐길 수 있는 프로그램을 제공하겠습니다.<br/>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, veniam?<br/>
+                At soluta incidunt quidem nemo eligendi possimus est perspiciatis eos? Vel, omnis?
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- /close -->
+    </main>
+
+    <!-- copyright -->
+    <footer class="bg-light text-center p-3">
+        &copy; 2021 김유진 All right reserved
+    </footer>
+    
+</body>
+</html>

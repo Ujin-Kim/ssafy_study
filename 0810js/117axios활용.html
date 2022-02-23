@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/todos/";
+
+        // axios.get(url).then((res) => {
+        //     const array = res.data.reduce((acc, cur) => {// key이름이 data
+        //         if(cur.completed === false && cur.userId%2 === 0 && cur.title.length >= 10 && cur.title.indexOf('qua') > 0){
+        //             acc.push(cur);
+        //         }
+        //         return acc;
+        //     }, []);
+        //     console.log(array);
+        // });
+        let array = [];
+        axios.get(url).then((res) => {
+            array = res.data;
+        });
+        const result = array.reduce((acc, cur) => {// key이름이 data
+            if(cur.completed === false && cur.userId%2 === 0 && cur.title.length >= 10 && cur.title.indexOf('qua') > 0){
+                acc.push(cur);
+            }
+            return acc;
+        }, []);
+
+        console.log(array);
+
+    </script>
+</body>
+</html>
