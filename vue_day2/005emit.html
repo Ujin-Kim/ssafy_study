@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{num}}</p>
+        <!-- <button v-on:click="logText">1</button> -->
+        <!-- logText라는 메서드를 pass라는 이름으로 바인딩했다 -->
+        <app-header v-on:pass="logText"></app-header>
+        <!-- <button v-on:click="add">2</button> -->
+        <!-- add함수를 increase 자식으로 보내준거 -->
+        <app-content v-on:increase="add"></app-content>
+    </div>
+    
+    <!-- -->
+
+
+    <script>
+
+        const appHeader = {
+            template: '<button v-on:click="passEvent">click</button>',
+            methods:{
+                passEvent : function(){
+                    //자식,본인이 가지는 hello
+                    console.log("hello")
+                    //부모가 가지는 hi가 출력됨
+                    this.$emit('pass')
+                    // 자식에서 부모로 pass라는 이름으로 내려온 props를 실행(emit)시켰더니 logText가 실행이되서 hi가 출몰했다
+                }
+            }
+        }
+
+        const appContent= {
+            template: '<button v-on:click="addNumber">2</button>',
+            methods:{
+                addNumber: function(){
+                    this.$emit('increase');
+                }
+            }
+        }
+
+        const app = new Vue({
+            el:"#app",
+
+            // 컴포넌트로 만들어보자
+            components: {
+                'app-header' : appHeader,
+                'app-content' : appContent,
+            },
+            //
+            data:{
+                num: 10
+            },
+            methods: {
+                logText: function(){
+                    console.log("hi");
+                },
+                add: function(){
+                    this.num += 1;
+                    console.log(this);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

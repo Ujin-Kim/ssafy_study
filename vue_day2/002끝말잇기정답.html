@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <div>끝말잇기</div>
+        <br>
+        <div>{{word}}</div>
+         v-on:submit 이거만 하면 submit()함수안에 console.log가 빨리 보여지고 사라짐 / v-on:submit.prevent === e.preventDefault와 같다 
+        <form v-on:submit ="submit">
+            <input type="text" v-mdoel="value" ref="answer"/>
+            <button type="submit">입력</button>
+        </form>
+        <div>{{result}}</div>
+        <br>
+        <br>
+        <br> -->
+         컴포넌트 만들어보기
+        <word-relay start-word="유상무"></word-relay>
+    </div>
+
+    <!--  -->
+
+    <script>
+        Vue.component("word-relay", {
+            template:
+
+            `
+            <div>
+            <div>끝말잇기</div>
+            <br>
+            <div>{{word}}</div>
+            <form v-on:submit ="submit">
+                <input type="text" v-model="value" ref="answer"/>
+                <button type="submit">입력</button>
+            </form>
+            <div>{{result}}</div>
+            </div>
+            `,
+            //컴포넌트에서는 데이터를 함수로 만들어줘야한다.
+            props : ["start-word"],
+            // dom tamplete안에서는 대문자 대신 - 로받아서 처리해야한다.
+            data() {
+                return {
+                    word:this.startWord,
+                    result:'',
+                    value:'',
+                }
+            },
+            methods:{
+                submit(){
+                    e.preventDefault();
+                    if(this.word[this.word.length-1] === this.value[0]){
+                        this.result = "정답";
+                        this.word=this.value;
+                    }
+                    else{
+                        this.result="땡";
+                    }
+                    this.value="";
+                    this.$refs.answer.focus();
+                }
+            }
+        })
+
+        const app = new Vue({
+                el: "#app",
+        });
+
+
+        /*
+        const app = new Vue({
+            el:"#app",
+            data:{
+                word:'유상무',
+                result:'',
+                value:'',
+            },
+            methods:{
+                submit(){
+                    // e.preventDefault : 기본동작을 막는 디폴트 - submit은 제출하고 다시 하는 거처럼 하는거라서. 
+                    e.preventDefault();
+                    if(this.word[this.word.length-1] === this.value[0]){
+                        this.result = "정답";
+                        this.word=this.value;
+                    }
+                    else{
+                        this.result="땡";
+                    }
+                    this.value="";
+                    this.$refs.answer.focus(); //커서가 가는듯?다시확인해보깅
+                }
+            }
+        })
+        */
+    </script>
+</body>
+</html>

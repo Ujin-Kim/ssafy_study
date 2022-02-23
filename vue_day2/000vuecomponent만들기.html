@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 컴포넌트를 만든다는 행위 : 레고블록을 만드는 행위 나중에 조립해서 사용할 것임 -->
+    <!-- 밑에꺼는 개발모드라서 개발자한테 유용한 경고 안내등을 알려줌 대신 상용모드보다 조금 느리다 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <!-- 우리가 만들 컴포넌트 이름 -->
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key=item.id></todo-item>
+        </ol>
+        <ul>
+            <!-- 컴포넌트 사용하는 이유 -->
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key=item.id></todo-item>
+        </ul>
+    </div>
+
+    <!-- 주석으로 구분 -->
+    <script>
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template:`<li>{{todo.text}}</li>`
+        })
+
+
+        const app = new Vue({
+            el: "#app",
+            data: {
+                groceryList:[
+                    { id:0, text:"Vegetables"},
+                    { id:1, text:"Cheese"},
+                    { id:2, text:"Whatever else humans are supposed to eat"},
+                ]  
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue cdn치고 가져오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component v-bind:propsdata="msg">이거는 안보이지롱</component>
+    </div>
+    
+    <!--  -->
+
+
+    <script>
+// v-bind로 부모에서 msg를 받아서 propsdata로 넣어서 component에서 propsdata를 화면으로 보낸다.
+//위에 컴포넌트 자체가 template으로 보여짐 
+        Vue.component("component",{
+            props:["propsdata"],
+            template: '<p>{{propsdata}}</p>>'
+        })
+
+        const app = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello, world"
+            }
+        })
+    </script>
+</body>
+</html>
